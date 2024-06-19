@@ -6,7 +6,7 @@ import { Component, ElementRef, ViewEncapsulation, viewChild } from '@angular/co
   imports: [],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css',
-  encapsulation:ViewEncapsulation.ShadowDom
+  //encapsulation:ViewEncapsulation.ShadowDom
 })
 export class DialogComponent {
   private dialog = viewChild<ElementRef<HTMLDialogElement>>('dialog');

@@ -1,8 +1,14 @@
 <button (click)="handlerClick()">
+  <!--
   <slot></slot>
+  -->
+  <ng-content></ng-content>
 </button>
 <dialog #dialog>
   <form method="dialog">
-    <slot name="content"></slot>
+    <!--
+      <slot name="content"></slot>
+    -->
+    <ng-content select=".dialog"></ng-content>
   </form>
 </dialog>
