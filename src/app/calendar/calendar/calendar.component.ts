@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,ViewEncapsulation } from '@angular/core';
 import { DayComponent } from '../day/day.component';
+
 
 
 function* getDays(){
@@ -13,7 +14,8 @@ function* getDays(){
   standalone: true,
   imports: [DayComponent],
   templateUrl: './calendar.component.html',
-  styleUrl: './calendar.component.css'
+  styleUrl: './calendar.component.css',
+
 })
 export class CalendarComponent {
   days = [...getDays()]

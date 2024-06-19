@@ -1,0 +1,8 @@
+<button (click)="handlerClick()">
+  <slot></slot>
+</button>
+<dialog #dialog>
+  <form method="dialog">
+    <slot name="content"></slot>
+  </form>
+</dialog>
