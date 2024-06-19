@@ -1,3 +1,9 @@
+
+<app-listpizzas>
+</app-listpizzas>
+<app-carrito>
+
+</app-carrito>
 <app-dialog>
   Eliminar
   <!--
@@ -62,4 +68,9 @@
 
 <app-parent></app-parent>
 
+@defer (on viewport) {
+  <app-posts/>
+} @placeholder {
+  <div>...Loading</div>
+}
 

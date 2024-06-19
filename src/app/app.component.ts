@@ -5,6 +5,9 @@ import { TimerComponent } from './timer/timer.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ServiceAService } from './service-a.service';
 import { CreateService } from './create.service';
+import { PostsComponent } from './posts/posts.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { ListpizzasComponent } from './listpizzas/listpizzas.component';
 
 interface Request{
   id:number,
@@ -18,7 +21,15 @@ interface Request1{
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports:[ParentComponent, CalendarComponent, TimerComponent, DialogComponent],
+  imports:[
+      ParentComponent,
+      CalendarComponent,
+      TimerComponent,
+      DialogComponent,
+      PostsComponent,
+      CarritoComponent,
+      ListpizzasComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 
