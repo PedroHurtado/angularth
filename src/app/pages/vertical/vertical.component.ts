@@ -1,24 +1,22 @@
-import { Component, signal } from '@angular/core';
+import { Component, Provider, signal } from '@angular/core';
 import { GetallService } from '../../getall.service';
-import { HttpClient } from '@angular/common/http';
-import { URLTOKEN, deps, factory } from '../../util/urlglobal';
+import { createFactory } from '../../util/urlglobal';
 
 interface Response{
 
 }
 
-
-
 const path = 'posts'
+const provide:Provider ={...{provide:GetallService<Response>},...{}}
+
+
 @Component({
   selector: 'app-vertical',
   standalone: true,
   imports: [],
-  providers:[{
-    provide:GetallService<Response>,
-    useFactory:factory(path),
-    deps:deps
-  }],
+  providers:[
+    provide
+  ],
   templateUrl: './vertical.component.html',
   styleUrl: './vertical.component.css'
 })
