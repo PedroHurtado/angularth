@@ -31,6 +31,10 @@ export const routes: Routes = [
     loadComponent:()=>import('./pages/login/login.component').then(c=>c.LoginComponent)
   },
   {
+    path:'vertical',
+    loadComponent:()=>import('./pages/vertical/vertical.component').then(c=>c.VerticalComponent)
+  },
+  {
     path:'**',
     component : NotfoundComponent
 
