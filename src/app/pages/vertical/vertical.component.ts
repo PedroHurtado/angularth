@@ -5,10 +5,11 @@ import { createFactory } from '../../util/urlglobal';
 interface Response{
 
 }
+
+const token = {provide:GetallService<Response>}
 const path = 'posts'
 const factory = createFactory(path)
 
-const provide:Provider ={...{provide:GetallService<Response>}, ...{factory}}
 
 
 @Component({
@@ -16,7 +17,7 @@ const provide:Provider ={...{provide:GetallService<Response>}, ...{factory}}
   standalone: true,
   imports: [],
   providers:[
-    provide
+    {...token, ...factory}
   ],
   templateUrl: './vertical.component.html',
   styleUrl: './vertical.component.css'
