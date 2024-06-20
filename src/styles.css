@@ -6,3 +6,6 @@ dialog{
 dialog{
   border: 1px solid blue;
 }
+router-outlet{
+  display: contents;
+}
