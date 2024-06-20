@@ -5,9 +5,10 @@ import { createFactory } from '../../util/urlglobal';
 interface Response{
 
 }
-
 const path = 'posts'
-const provide:Provider ={...{provide:GetallService<Response>},...{}}
+const factory = createFactory(path)
+
+const provide:Provider ={...{provide:GetallService<Response>}, ...{factory}}
 
 
 @Component({
