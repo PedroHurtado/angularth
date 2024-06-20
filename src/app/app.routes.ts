@@ -1,16 +1,39 @@
-import { Routes } from '@angular/router';
-import { Pagina1Component } from './pages/pagina1/pagina1.component';
-import { Pagina2Component } from './pages/pagina2/pagina2.component';
-import { Pagina3Component } from './pages/pagina3/pagina3.component';
+import { Routes, mapToCanActivate, mapToCanActivateChild } from '@angular/router';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { HomeComponent } from './pages/home/home.component';
+import { autGuard } from './aut.guard';
+import { resolverResolver } from './resolver.resolver';
 
 export const routes: Routes = [
+  //
+  //{path: '', redirectTo: '/pagina1', pathMatch: 'full'},
   {
-    path: 'pagina1', component: Pagina1Component
+    path:'',component:HomeComponent
+  },
+
+  {
+    //[10:53] ROJAS Jhonhttps://dev.to/samuelwachira/angular-authentication-route-guards-4joe
+    path: 'pagina1',
+    canActivate:[autGuard],
+    loadComponent: ()=>import('./pages/pagina1/pagina1.component').then(c=>c.Pagina1Component)
   },
   {
-    path: 'pagina2', component: Pagina2Component
+    path: 'pagina2/:id/pepe/:idpepe',
+    loadComponent:()=>import('./pages/pagina2/pagina2.component').then(c=>c.Pagina2Component)
   },
   {
-    path: 'pagina3', component: Pagina3Component
+    path: 'pagina3',
+    resolve : [resolverResolver],
+    loadComponent:()=>import('./pages/pagina3/pagina3.component').then(c=>c.Pagina3Component)
+  },
+  {
+    path:'login',
+    loadComponent:()=>import('./pages/login/login.component').then(c=>c.LoginComponent)
+  },
+  {
+    path:'**',
+    component : NotfoundComponent
+
   }
+
 ];
