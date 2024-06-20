@@ -8,6 +8,7 @@ import { CreateService } from './create.service';
 import { PostsComponent } from './posts/posts.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ListpizzasComponent } from './listpizzas/listpizzas.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 interface Request{
   id:number,
@@ -28,7 +29,8 @@ interface Request1{
       DialogComponent,
       PostsComponent,
       CarritoComponent,
-      ListpizzasComponent
+      ListpizzasComponent,
+      LayoutComponent
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

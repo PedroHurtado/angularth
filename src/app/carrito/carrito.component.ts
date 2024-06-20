@@ -15,6 +15,7 @@ export class CarritoComponent implements OnDestroy {
 
     document.addEventListener('carrito',this.handlerCarrito)
 
+
     this.carrito.asObservable().subscribe(this.handlerCarrito)
   }
   ngOnDestroy(): void {
