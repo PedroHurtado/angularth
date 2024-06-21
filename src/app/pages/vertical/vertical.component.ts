@@ -5,20 +5,29 @@ import { useProvide } from '../../util/urlglobal';
 interface Response{
   id:string
 }
+interface Foo{
+
+}
 
 @Component({
   selector: 'app-vertical',
   standalone: true,
   imports: [],
   providers:[
-    useProvide(GetallService<Response>, "posts")
+    useProvide<typeof GetallService<Response>>(GetallService<Response>, "posts"),
+    //useProvide<typeof GetallService<Foo>>(GetallService<Foo>, "foo")
   ],
   templateUrl: './vertical.component.html',
   styleUrl: './vertical.component.css'
 })
 export class VerticalComponent {
   response!:Response;
-  constructor(private service:GetallService<Response>){
+  constructor(
+    private service:GetallService<Response>,
+    //private serviceFoo :GetallService<Foo>
+
+  ){
+    //this.serviceFoo;
     this.getData()
   }
 
