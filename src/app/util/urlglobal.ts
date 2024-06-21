@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http"
-import { FactorySansProvider, InjectionToken } from "@angular/core"
+import { FactorySansProvider, InjectionToken, Provider } from "@angular/core"
 import { GetallService } from "../getall.service"
 
 export const URLGLOBAL = 'https://jsonplaceholder.typicode.com/'
@@ -11,9 +11,12 @@ const  factory = (path:string)=>{
     return new GetallService(http,urlApi,path)
   }
 }
-export const createFactory=(path:string):FactorySansProvider=>{
+
+export function useProvide<A>(type:A, path:string): Provider {
   return {
+    provide:type,
     useFactory:factory(path),
     deps:deps
   }
 }
+

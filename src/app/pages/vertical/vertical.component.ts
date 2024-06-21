@@ -1,34 +1,28 @@
 import { Component, Provider, signal } from '@angular/core';
 import { GetallService } from '../../getall.service';
-import { createFactory } from '../../util/urlglobal';
+import { useProvide } from '../../util/urlglobal';
 
 interface Response{
-
+  id:string
 }
-
-const token = {provide:GetallService<Response>}
-const path = 'posts'
-const factory = createFactory(path)
-
-
 
 @Component({
   selector: 'app-vertical',
   standalone: true,
   imports: [],
   providers:[
-    {...token, ...factory}
+    useProvide(GetallService<Response>, "posts")
   ],
   templateUrl: './vertical.component.html',
   styleUrl: './vertical.component.css'
 })
 export class VerticalComponent {
-  response = signal<Response>({})
+  response!:Response;
   constructor(private service:GetallService<Response>){
     this.getData()
   }
 
   async getData(){
-    this.response.set(await this.service.get())
+    this.response = await this.service.get();
   }
 }
