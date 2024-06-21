@@ -35,6 +35,10 @@ export const routes: Routes = [
     loadComponent:()=>import('./pages/vertical/vertical.component').then(c=>c.VerticalComponent)
   },
   {
+    path:'forms',
+    loadComponent:()=>import('./forms/form/form.component').then(c=>c.FormComponent)
+  },
+  {
     path:'**',
     component : NotfoundComponent
 

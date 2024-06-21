@@ -1,0 +1,5 @@
+<form [formGroup]="form" (submit)="submit($event)">
+  <app-input id="name" label="Introduzca el nombre" [form]="form"/>
+  <app-input id="phone" label="Introduzca el teléfono" [form]="form"/>
+  <button type="submit">Enviar</button>
+</form>

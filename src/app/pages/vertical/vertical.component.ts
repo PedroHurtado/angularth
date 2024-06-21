@@ -14,6 +14,10 @@ interface Foo{
   standalone: true,
   imports: [],
   providers:[
+
+    //CREAR DIFERENTES TOKEN DE INYECTION
+    //SE PIERDE EL TIPO EN LA COMPILACION
+    //EL TOKEN GetallService<Response> y GetallService<Foo>
     useProvide<typeof GetallService<Response>>(GetallService<Response>, "posts"),
     //useProvide<typeof GetallService<Foo>>(GetallService<Foo>, "foo")
   ],
